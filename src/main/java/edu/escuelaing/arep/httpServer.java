@@ -54,6 +54,19 @@ public class httpServer {
                 genObject obj = typeObject.build(ContentType.valueOf(ruta.split("\\.")[ruta.split("\\.").length - 1]),clientSocket);
                 obj.createHttp(ruta);
                 obj.sendResult();
+                String outputLine = "HTTP/1.1 200 OK\r\n"
+                        + "Content-Type: text/html\r\n"
+                        + "\r\n"
+                        + "<!DOCTYPE html>\n"
+                        + "<html>\n"
+                        + "<head>\n"
+                        + "<meta charset=\"UTF-8\">\n"
+                        + "<title>Title of the document</title>\n"
+                        + "</head>\n"
+                        + "<body>\n"
+                        + "<h1>Mi propio mensaje</h1>\n"
+                        + "</body>\n"
+                        + "</html>\n" + inputLine;
 
             } catch (Exception ex) {
                 String outputLine;
